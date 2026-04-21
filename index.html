@@ -34,64 +34,14 @@ body {
   padding-bottom: 4rem;
 }
 
-/* NAV */
-nav {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 0 2rem;
-  display: flex;
-  align-items: center;
-  height: 56px;
-  gap: 2rem;
-}
-.nav-logo {
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--purple);
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-}
-.nav-logo-icon {
-  width: 28px; height: 28px;
-  background: var(--purple);
-  border-radius: 7px;
-  display: flex; align-items: center; justify-content: center;
-}
-.nav-links {
-  display: flex; gap: 0; list-style: none;
-}
-.nav-links li a {
-  font-size: 13px; color: var(--text-3); text-decoration: none;
-  padding: 0 14px; height: 56px; display: flex; align-items: center;
-  border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s;
-}
-.nav-links li a.active { color: var(--purple); border-bottom-color: var(--purple); font-weight: 500; }
-.nav-right {
-  margin-left: auto; display: flex; align-items: center;
-  gap: 10px; font-size: 13px; color: var(--text-2);
-}
-.nav-avatar {
-  width: 30px; height: 30px; background: var(--purple-light); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; font-weight: 600; color: var(--purple);
-}
-
 /* MAIN */
 .main-wrap {
   max-width: 560px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem;
 }
 
-.back-btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 13px; color: var(--text-3); cursor: pointer;
-  margin-bottom: 1.5rem; text-decoration: none; transition: color 0.15s;
-}
-.back-btn:hover { color: var(--text-2); }
+.back-btn { display: none; }
 
 .page-title {
   font-size: 20px; font-weight: 700; color: var(--text);
@@ -225,6 +175,18 @@ input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
 }
 .piso-note { font-size: 11px; color: var(--text-3); margin-top: 8px; line-height: 1.5; }
 
+/* DESELECT */
+.deselect-btn {
+  display: none;
+  align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 500; color: var(--text-3);
+  background: none; border: 1px solid var(--border-strong);
+  border-radius: 20px; padding: 4px 10px; cursor: pointer;
+  transition: all 0.15s; margin-bottom: 10px;
+}
+.deselect-btn:hover { border-color: #e57373; color: #c0392b; background: #fff5f5; }
+.deselect-btn.visible { display: inline-flex; }
+
 /* DISABLED */
 .card.disabled { opacity: 0.45; pointer-events: none; transition: opacity 0.3s; }
 
@@ -266,52 +228,6 @@ input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
   font-size: 11px; color: var(--text-3); text-align: center; line-height: 1.6; margin-top: 4px;
 }
 
-/* COMPARE CARD */
-.compare-card {
-  background: var(--surface); border: 1.5px solid var(--purple-mid);
-  border-radius: 14px; padding: 1.5rem; margin-bottom: 12px; display: none;
-}
-.compare-card.visible { display: block; }
-.compare-header {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--purple);
-  margin-bottom: 1.1rem; display: flex; align-items: center; gap: 7px;
-}
-.compare-header .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); }
-.compare-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.compare-table {
-  width: 100%; border-collapse: separate; border-spacing: 0;
-  min-width: 420px;
-}
-.compare-table th, .compare-table td {
-  padding: 9px 12px; text-align: right; font-size: 13px; vertical-align: middle;
-}
-.compare-table th:first-child, .compare-table td:first-child {
-  text-align: left; font-size: 12px; color: var(--text-3);
-  font-weight: 400; white-space: nowrap; min-width: 130px;
-}
-.compare-table thead th {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--text-3); padding-bottom: 10px; border-bottom: 1.5px solid var(--border-strong);
-}
-.compare-table thead th.col-active {
-  color: var(--purple);
-  background: var(--purple-light);
-  border-radius: 8px 8px 0 0;
-}
-.compare-table tbody tr { border-bottom: 1px solid var(--border); }
-.compare-table tbody tr:last-child td { border-bottom: none; }
-.compare-table tbody td { color: var(--text); font-weight: 500; }
-.compare-table tbody td.col-active {
-  background: var(--purple-light);
-}
-.compare-table tbody td.col-active-last { border-radius: 0 0 8px 8px; }
-.compare-table .row-total td { font-weight: 700; font-size: 14px; }
-.compare-table .row-total td.col-active { color: var(--purple); }
-.compare-table .row-total td:first-child { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-3); }
-.compare-table .row-cobertura td { font-size: 11px; color: var(--text-3); font-weight: 400; }
-.compare-table .row-cobertura td.col-active { color: var(--text-2); }
-
 @media (max-width: 480px) {
   nav .nav-links { display: none; }
   .page-title { font-size: 17px; }
@@ -323,35 +239,7 @@ input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="#">
-    <div class="nav-logo-icon">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M8 2L13 5V11L8 14L3 11V5L8 2Z" fill="white" fill-opacity="0.9"/>
-      </svg>
-    </div>
-    MoradaUno
-  </a>
-  <ul class="nav-links">
-    <li><a href="#">Inicio</a></li>
-    <li><a href="#">Operaciones</a></li>
-    <li><a href="#" class="active">Materiales y Calculadora</a></li>
-    <li><a href="#">Colaboradores</a></li>
-  </ul>
-  <div class="nav-right">
-    Equipo Comercial
-    <div class="nav-avatar">EC</div>
-  </div>
-</nav>
-
 <div class="main-wrap">
-
-  <a href="#" class="back-btn">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M10 12L6 8L10 4"/>
-    </svg>
-    Regresar
-  </a>
 
   <div class="page-title">Calculadora Comercial</div>
   <div class="page-subtitle">Obtén el precio exacto para tu cliente en segundos</div>
@@ -364,14 +252,6 @@ input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
       <input type="number" id="renta-input" placeholder="0" min="0" oninput="calcAll()" />
     </div>
     <div class="renta-hint" id="renta-hint">Ingresa la renta mensual para comenzar</div>
-
-    <div class="chips">
-      <button class="chip" onclick="setRenta(12000)">$12,000</button>
-      <button class="chip" onclick="setRenta(15000)">$15,000</button>
-      <button class="chip" onclick="setRenta(17000)">$17,000</button>
-      <button class="chip" onclick="setRenta(20000)">$20,000</button>
-      <button class="chip" onclick="setRenta(25000)">$25,000</button>
-    </div>
 
     <div class="mlegal-result" id="mlegal-result" style="display:none">
       <div class="mlegal-left">
@@ -386,6 +266,10 @@ input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
   <!-- PASO 2 -->
   <div class="card disabled" id="upsell-card">
     <div class="card-label"><span class="dot"></span>Protección adicional para el propietario</div>
+    <button class="deselect-btn" id="deselect-btn" onclick="selectTier(null)">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 2l8 8M10 2l-8 8"/></svg>
+      Quitar protección
+    </button>
     <div class="tier-grid">
       <button class="tier-btn" onclick="selectTier(1)" id="tier-1">
         <div class="tier-pct">1%</div>
@@ -417,10 +301,6 @@ input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
         <span class="res-val" id="u-mes-total">—</span>
       </div>
       <div class="res-row">
-        <span class="res-label">Total anual con IVA</span>
-        <span class="res-val green" id="u-anual-total">—</span>
-      </div>
-      <div class="res-row">
         <span class="res-label">Cobertura máxima</span>
         <span class="res-val" id="u-cobertura">—</span>
       </div>
@@ -437,64 +317,9 @@ input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
         <span class="total-item-val" id="t-mlegal">—</span>
       </div>
       <div class="total-item" id="t-upsell-row" style="display:none">
-        <span class="total-item-label" id="t-upsell-label">Protección mensual × 12</span>
+        <span class="total-item-label" id="t-upsell-label">Protección mensual</span>
         <span class="total-item-val" id="t-upsell">—</span>
       </div>
-    </div>
-    <div class="total-big">
-      <div class="total-big-label">
-        Costo año 1
-        <span>Todos los precios incluyen IVA (16%)</span>
-      </div>
-      <div class="total-big-val" id="t-total">—</div>
-    </div>
-  </div>
-
-  <!-- COMPARATIVA -->
-  <div class="compare-card" id="compare-card">
-    <div class="compare-header"><span class="dot"></span>Comparativa de opciones</div>
-    <div class="compare-scroll">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th id="ch-0">Sin protección</th>
-            <th id="ch-1">1% — 3 meses</th>
-            <th id="ch-2">2% — 6 meses</th>
-            <th id="ch-3">3% — 12 meses</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Pago inicial mLegal (c/IVA)</td>
-            <td id="cc-mlegal-0">—</td>
-            <td id="cc-mlegal-1">—</td>
-            <td id="cc-mlegal-2">—</td>
-            <td id="cc-mlegal-3">—</td>
-          </tr>
-          <tr>
-            <td>Protección mensual (c/IVA)</td>
-            <td id="cc-mensual-0">—</td>
-            <td id="cc-mensual-1">—</td>
-            <td id="cc-mensual-2">—</td>
-            <td id="cc-mensual-3">—</td>
-          </tr>
-          <tr class="row-total">
-            <td>Costo año 1</td>
-            <td id="cc-anio-0">—</td>
-            <td id="cc-anio-1">—</td>
-            <td id="cc-anio-2">—</td>
-            <td id="cc-anio-3">—</td>
-          </tr>
-          <tr class="row-cobertura">
-            <td>Cobertura máxima</td>
-            <td id="cc-cob-0">—</td>
-            <td id="cc-cob-1">—</td>
-            <td id="cc-cob-2">—</td>
-            <td id="cc-cob-3">—</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 
@@ -525,54 +350,11 @@ function getMlegalBase(renta) {
 }
 
 function selectTier(t) {
-  selectedTier = (selectedTier === t) ? null : t;
+  selectedTier = (t === null || selectedTier === t) ? null : t;
   [1,2,3].forEach(i => document.getElementById('tier-'+i).classList.toggle('active', selectedTier === i));
+  const deselectBtn = document.getElementById('deselect-btn');
+  deselectBtn.classList.toggle('visible', selectedTier !== null);
   calcAll();
-}
-
-function renderComparativa(renta, mlTotal, activeTier) {
-  const card = document.getElementById('compare-card');
-  if (renta <= 0) { card.classList.remove('visible'); return; }
-
-  const coverageMonths = { 1: 3, 2: 6, 3: 12 };
-  const tiers = [0, 1, 2, 3];
-
-  tiers.forEach(t => {
-    let uMensualConIva = 0;
-    let uAnualConIva = 0;
-    let coberturaStr = '—';
-
-    if (t > 0) {
-      const uBase = Math.max(renta * (t / 100), 120);
-      uMensualConIva = uBase * 1.16;
-      uAnualConIva = uMensualConIva * 12;
-      const meses = coverageMonths[t];
-      coberturaStr = fmtInt(renta * meses) + ' (' + meses + ' meses)';
-    }
-
-    const costoAnio1 = mlTotal + uAnualConIva;
-    const isActive = activeTier === t;
-    const colClass = isActive ? 'col-active' : '';
-
-    // Header
-    const th = document.getElementById('ch-' + t);
-    th.className = isActive ? 'col-active' : '';
-
-    // Cells
-    document.getElementById('cc-mlegal-' + t).className = colClass;
-    document.getElementById('cc-mlegal-' + t).textContent = fmtInt(mlTotal);
-
-    document.getElementById('cc-mensual-' + t).className = colClass;
-    document.getElementById('cc-mensual-' + t).textContent = t > 0 ? fmtInt(uMensualConIva) : '—';
-
-    document.getElementById('cc-anio-' + t).className = colClass;
-    document.getElementById('cc-anio-' + t).textContent = fmtInt(costoAnio1);
-
-    document.getElementById('cc-cob-' + t).className = colClass;
-    document.getElementById('cc-cob-' + t).textContent = coberturaStr;
-  });
-
-  card.classList.add('visible');
 }
 
 function calcAll() {
@@ -589,7 +371,6 @@ function calcAll() {
     upsellCard.classList.add('disabled');
     totalCard.classList.remove('visible');
     document.getElementById('upsell-result').classList.remove('visible');
-    renderComparativa(0, 0, null);
     return;
   }
 
@@ -602,7 +383,7 @@ function calcAll() {
   hint.textContent = tipo === 'fijo'
     ? 'Precio fijo para rentas hasta $20,000'
     : 'Renta > $20,000 — aplica 20% sobre la renta';
-  document.getElementById('mlegal-badge').textContent = tipo === 'fijo' ? 'Precio fijo' : '20% s/ renta';
+  document.getElementById('mlegal-badge').textContent = tipo === 'fijo' ? 'Precio fijo' : '20% de un mes de renta';
   document.getElementById('mlegal-badge').className = 'mlegal-badge ' + (tipo === 'fijo' ? 'badge-fijo' : 'badge-pct');
   document.getElementById('mlegal-price').textContent = fmtInt(mlBase);
   document.getElementById('mlegal-iva').innerHTML = '+ IVA (16%) = <strong>' + fmtInt(mlTotal) + ' con IVA</strong>';
@@ -624,7 +405,6 @@ function calcAll() {
     document.getElementById('u-mensual').innerHTML = fmtInt(uBase) + (usoPiso ? '<span class="piso-badge">PISO</span>' : '');
     document.getElementById('u-iva').textContent = fmtInt(uIva);
     document.getElementById('u-mes-total').textContent = fmtInt(uMesTotal);
-    document.getElementById('u-anual-total').textContent = fmtInt(uAnualTotal);
     document.getElementById('u-cobertura').textContent = 'Hasta ' + fmtInt(cobertura) + ' (' + coverageMap[selectedTier].label + ')';
     document.getElementById('u-piso-note').textContent = usoPiso
       ? 'Se aplica el piso mínimo de $120/mes + IVA. El porcentaje calcularía ' + fmtInt(calc) + '/mes.'
@@ -632,20 +412,16 @@ function calcAll() {
     document.getElementById('upsell-result').classList.add('visible');
 
     document.getElementById('t-mlegal').textContent = fmtInt(mlTotal);
-    document.getElementById('t-upsell-label').textContent = 'Protección ' + selectedTier + '% mensual × 12';
-    document.getElementById('t-upsell').textContent = fmtInt(uAnualTotal);
+    document.getElementById('t-upsell-label').textContent = 'Protección ' + selectedTier + '% mensual';
+    document.getElementById('t-upsell').textContent = fmtInt(uMesTotal) + '/mes';
     document.getElementById('t-upsell-row').style.display = 'flex';
-    document.getElementById('t-total').textContent = fmtInt(mlTotal + uAnualTotal);
     totalCard.classList.add('visible');
   } else {
     document.getElementById('upsell-result').classList.remove('visible');
     document.getElementById('t-upsell-row').style.display = 'none';
     document.getElementById('t-mlegal').textContent = fmtInt(mlTotal);
-    document.getElementById('t-total').textContent = fmtInt(mlTotal);
     totalCard.classList.add('visible');
   }
-
-  renderComparativa(renta, mlTotal, selectedTier);
 }
 </script>
 </body>
